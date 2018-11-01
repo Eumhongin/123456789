@@ -1,7 +1,4 @@
-<?php include('module/CNT.php');
-  echo "<script>console.log('".$CNT_name."');</script>";
-
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

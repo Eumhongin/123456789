@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include('module/dbconnect.php');
   include('module/CNT.php');
 
@@ -10,8 +11,9 @@
   $result = mysqli_query($conn,$sql);
   $row = mysqli_fetch_array($result,MYSQLI_BOTH);
   if($pass == $row['member_password']){
-    $CNT_name = $row['member_name'];
-    $CNT_identification = $row['member_identification'];
+    $_SESSION['member_name'] = $row['member_name'];
+    $_SESSION['member_identification'] = $row['member_identification'];
+    echo "<script> alert('Member_name : ".$_SESSION['member_name']."\nMember_identification".$_SESSION['member_identification']."'); location.href = 'mypage.php'; </script>";
     echo "<script> alert('".$row['member_name']."님 환영합니다!'); location.href = 'mypage.php'; </script>";
   }
   else {
